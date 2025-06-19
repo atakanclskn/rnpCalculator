@@ -44,10 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add.cs" />
+    <Compile Include="Calculator.cs" />
+    <Compile Include="CalculatorGui.cs" />
     <Compile Include="Divide.cs" />
     <Compile Include="Multiply.cs" />
     <Compile Include="Operand.cs" />
-    <Compile Include="OperandStack.cs" />
+    <Compile Include="Stack.cs" />
     <Compile Include="Operator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace rnpCalculator
 {
-    class OperandStack
+    class Stack
     {
         private Stack<int> stack = new Stack<int>();
         public void Push(int value) => stack.Push(value);
