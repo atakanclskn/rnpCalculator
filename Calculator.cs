@@ -8,11 +8,11 @@ namespace rnpCalculator
 {
     class Calculator
     {
-        private readonly Stack operandStack = new Stack();
-
         public int Evaluate(string input)
         {
+            var operandStack = new Stack<int>();
             string[] tokens = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
             foreach (var token in tokens)
             {
                 if (int.TryParse(token, out int number))
@@ -21,12 +21,19 @@ namespace rnpCalculator
                 }
                 else
                 {
+                    if (operandStack.Count < 2)
+                        throw new InvalidOperationException("Yeterli operand yok!");
+
+                    int right = operandStack.Pop();
+                    int left = operandStack.Pop();
+
                     Operator op = GetOperator(token);
-                    int b = operandStack.Pop();
-                    int a = operandStack.Pop();
-                    int result = op.Apply(a, b);
+                    int result = op.Apply(left, right);
                     operandStack.Push(result);
                 }
+
+                // Her adımda yığın durumunu yazdırma:
+                Console.WriteLine("{0,-10} | [{1}]", token, string.Join(", ", operandStack.Reverse()));
             }
 
             if (operandStack.Count != 1)
