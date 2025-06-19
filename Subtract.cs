@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace rnpCalculator
 {
-    internal class Program
+    class Subtract : Operator
     {
-        static void Main(string[] args)
-        {
-            var gui = new CalculatorGui();
-            gui.Run();
-        }
+        public override int Apply(int a, int b) => a - b;
     }
 }

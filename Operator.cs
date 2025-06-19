@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace rnpCalculator
 {
-    internal class Program
+    abstract class Operator
     {
-        static void Main(string[] args)
-        {
-            var gui = new CalculatorGui();
-            gui.Run();
-        }
+        public abstract int Apply(int a, int b);
     }
 }
